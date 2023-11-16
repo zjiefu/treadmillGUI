@@ -5,7 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.image import Image    
 from kivy.core.window import Window
 # from callback import Callback
-from callback import speedDrease, speedIncrease
+from callback import speedDecrease, speedIncrease
 from BertecMan_Mod import Bertec
 import winsound
 import time
@@ -65,7 +65,7 @@ class ButtonApp(App):
         speedIncrease(self.bertecObj)
 
     def callback2(self, event):
-        speedDrease(self.bertecObj)
+        speedDecrease(self.bertecObj)
 
 if __name__ == '__main__':
     ButtonApp().run()
