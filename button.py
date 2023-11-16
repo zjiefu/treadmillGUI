@@ -54,11 +54,11 @@ class ButtonApp(App):
 
         iter = 0
         while iter < 3:
-            winsound.Beep(450, 0.3)
+            winsound.Beep(450, 300)
             time.sleep(0.3)
-            winsound.Beep(450, 0.3)
+            winsound.Beep(450, 300)
             time.sleep(0.3)
-            winsound.Beep(450, 0.3)
+            winsound.Beep(450, 300)
             time.sleep(0.3)
             iter += 1
 
