@@ -54,12 +54,12 @@ class ButtonApp(App):
 
         iter = 0
         while iter < 3:
-            winsound.Beep(450, 300)
-            time.sleep(0.3)
-            winsound.Beep(450, 300)
-            time.sleep(0.3)
-            winsound.Beep(450, 300)
-            time.sleep(0.3)
+            winsound.Beep(480, 200)
+            time.sleep(0.1)
+            winsound.Beep(480, 200)
+            time.sleep(0.1)
+            winsound.Beep(480, 200)
+            time.sleep(0.5)
             iter += 1
 
         print('Bertec communication set up')
