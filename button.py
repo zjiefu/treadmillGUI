@@ -20,14 +20,14 @@ class ButtonApp(App):
         superBox = BoxLayout(orientation='vertical')
         MiddleBox = BoxLayout(orientation='horizontal', spacing=10, size_hint=(1, 0.2), padding=10)
 
-        btn1 = Button(text ="–",
+        btn2 = Button(text ="–",
                    font_size ="100sp",
                    background_color =(1, 0, 0, 0.9),
                    color =(1, 1, 1, 1),
                    size =(32, 32),
                    size_hint =(1, 0.4))
         
-        btn2 = Button(text ="+",
+        btn1 = Button(text ="+",
                    font_size ="100sp",
                    background_color =(22/255, 231/255, 22/255, 0.9),
                    color =(1, 1, 1, 1),
@@ -51,11 +51,14 @@ class ButtonApp(App):
     def on_start(self):
         self.bertecObj = Bertec()
         self.bertecObj.start()
-        self.bertecObj._write_command(0.5, 0.5)
         winsound.PlaySound('ringtone.wav', winsound.SND_FILENAME)
+        time.sleep(0.5)
+        self.bertecObj._write_command(0.5, 0.5)
         print('Bertec communication set up')
 
     def on_stop(self):
+        winsound.Beep(800, 1000)        # Just a beep sound to indicate the treadmill will slowdown
+        time.sleep(0.5)
         self.bertecObj._write_command(0, 0)
         self.bertecObj.stop()
         print('Bertec communication closed')
