@@ -1,11 +1,14 @@
 from kivy.app import App
 from kivy.uix.button import Button
-from kivy.uix.widget import Widget
+# from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout    
 from kivy.uix.image import Image    
 from kivy.core.window import Window
-from callback import btnCallback
+# from callback import Callback
+from callback import speedDrease, speedIncrease
 from BertecMan_Mod import Bertec
+import winsound
+import time
     
 class ButtonApp(App):
     """
@@ -44,15 +47,33 @@ class ButtonApp(App):
         superBox.add_widget(btn1)
 
         return superBox
+
+    def on_start(self):
+        self.bertecObj = Bertec()
+        self.bertecObj.start()
+
+        iter = 0
+        while iter < 3:
+            winsound.Beep(450, 0.3)
+            time.sleep(0.3)
+            winsound.Beep(450, 0.3)
+            time.sleep(0.3)
+            winsound.Beep(450, 0.3)
+            time.sleep(0.3)
+            iter += 1
+
+        print('Bertec communication set up')
+
+    def on_stop(self):
+        self.bertecObj.stop()
+        print('Bertec communication closed')
  
     # callback function tells when button pressed
     def callback1(self, event):
-        btnCallback(False)
+        speedIncrease(self.bertecObj)
 
     def callback2(self, event):
-        btnCallback(True)
+        speedDrease(self.bertecObj)
 
 if __name__ == '__main__':
-    
-    print('Bertec communication set up')
     ButtonApp().run()
