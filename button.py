@@ -52,19 +52,11 @@ class ButtonApp(App):
         self.bertecObj = Bertec()
         self.bertecObj.start()
 
-        iter = 0
-        while iter < 3:
-            winsound.Beep(480, 200)
-            time.sleep(0.1)
-            winsound.Beep(480, 200)
-            time.sleep(0.1)
-            winsound.Beep(480, 200)
-            time.sleep(0.5)
-            iter += 1
-
+        winsound.PlaySound('ringtone.wav', winsound.SND_FILENAME)
         print('Bertec communication set up')
 
     def on_stop(self):
+        self.bertecObj._write_command(0, 0)
         self.bertecObj.stop()
         print('Bertec communication closed')
  
