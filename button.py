@@ -42,16 +42,16 @@ class ButtonApp(App):
         MiddleBox.add_widget(Locolab_logo)
         MiddleBox.add_widget(Button(background_color =(202/255, 217/255, 206/255, 0)))
 
-        superBox.add_widget(btn2)
-        superBox.add_widget(MiddleBox)
         superBox.add_widget(btn1)
+        superBox.add_widget(MiddleBox)
+        superBox.add_widget(btn2)
 
         return superBox
 
     def on_start(self):
         self.bertecObj = Bertec()
         self.bertecObj.start()
-
+        self.bertecObj._write_command(0.5, 0.5)
         winsound.PlaySound('ringtone.wav', winsound.SND_FILENAME)
         print('Bertec communication set up')
 
