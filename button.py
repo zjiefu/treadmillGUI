@@ -5,10 +5,12 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.image import Image    
 from kivy.core.window import Window
 from callback import btnCallback
-import socket
+from BertecMan_Mod import Bertec
     
 class ButtonApp(App):
-     
+    """
+    Button class, defines all GUI properties
+    """    
     def build(self):
         Window.clearcolor = (202/255, 217/255, 206/255, 1)
         
@@ -51,7 +53,6 @@ class ButtonApp(App):
         btnCallback(True)
 
 if __name__ == '__main__':
-    # Need to set up Bertec communication
-    # socket
+    
     print('Bertec communication set up')
     ButtonApp().run()
