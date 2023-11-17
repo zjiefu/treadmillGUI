@@ -51,8 +51,8 @@ class ButtonApp(App):
     def on_start(self):
         self.bertecObj = Bertec()
         self.bertecObj.start()
-        # winsound.PlaySound('ringtone.wav', winsound.SND_FILENAME)
-        winsound.Beep(800, 2500)        # Just a beep sound to indicate the treadmill will speedup
+        winsound.PlaySound('ringtone.wav', winsound.SND_FILENAME)
+        # winsound.Beep(800, 2500)        # Just a beep sound to indicate the treadmill will speedup
         time.sleep(0.5)
         self.bertecObj._write_command(0.5, 0.5)
         print('Bertec communication set up')
