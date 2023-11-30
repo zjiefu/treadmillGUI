@@ -6,7 +6,7 @@ from kivy.uix.image import Image
 from kivy.core.window import Window
 from kivy.clock import Clock
 # from callback import Callback
-from callback import speedDecrease, speedIncrease, getSpeed
+from callback import speedDecrease, speedIncrease, getSpeed, getDistance
 from BertecMan_Mod import Bertec
 import winsound
 import time
@@ -76,7 +76,8 @@ class ButtonApp(App):
 
     def getSpeed(self, event):
         currentSpeed = getSpeed(self.bertecObj)
-        print("Current speed: %.2f m/s" %currentSpeed, end='\r')
+        currentDistance = getDistance(self.bertecObj)
+        print("Current speed: %.2f m/s, Current distance: %.1f m" % (currentSpeed, currentDistance), end='\r')
 
 if __name__ == '__main__':
     ButtonApp().run()
