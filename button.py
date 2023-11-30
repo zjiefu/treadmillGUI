@@ -47,7 +47,7 @@ class ButtonApp(App):
         superBox.add_widget(MiddleBox)
         superBox.add_widget(btn2)
 
-        Clock.schedule_interval(self.getSpeed, 2)
+        Clock.schedule_interval(self.getSpeed, 0.5)
 
         return superBox
 
