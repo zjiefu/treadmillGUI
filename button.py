@@ -4,8 +4,9 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout    
 from kivy.uix.image import Image    
 from kivy.core.window import Window
+from kivy.clock import Clock
 # from callback import Callback
-from callback import speedDecrease, speedIncrease
+from callback import speedDecrease, speedIncrease, getSpeed
 from BertecMan_Mod import Bertec
 import winsound
 import time
@@ -46,6 +47,8 @@ class ButtonApp(App):
         superBox.add_widget(MiddleBox)
         superBox.add_widget(btn2)
 
+        Clock.schedule_interval(self.getSpeed, 2)
+
         return superBox
 
     def on_start(self):
@@ -70,6 +73,10 @@ class ButtonApp(App):
 
     def callback2(self, event):
         speedDecrease(self.bertecObj)
+
+    def getSpeed(self, event):
+        currentSpeed = getSpeed(self.bertecObj)
+        print("Current speed: ", currentSpeed, "m/s", end='\r')
 
 if __name__ == '__main__':
     ButtonApp().run()

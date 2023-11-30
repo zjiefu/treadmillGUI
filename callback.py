@@ -71,6 +71,10 @@ def speedDecrease(bertecObj):
 
     print("Speed Decreased, now: ", speedL, "m/s", end='\r')
 
+def getSpeed(bertecObj):
+    speedL, speedR = bertecObj.get_belt_speed()
+    return (speedL + speedR) / 2
+
 
 if __name__ == '__main__':
     winsound.Beep(440, 2000)
