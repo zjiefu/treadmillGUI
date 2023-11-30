@@ -56,8 +56,8 @@ def speedIncrease(bertecObj):
     speedR = speedAvg + 0.1
     bertecObj._write_command(speedL, speedR) 
 
-    # print("Speed Increased, now: ", speedL, "m/s", end='\n')
-
+    print("Speed Increased, now: %.2f m/s" % (speedL+speedR)/2, end='\n')
+    
 def speedDecrease(bertecObj):
     freq = 800
     dur = 1000
@@ -69,7 +69,7 @@ def speedDecrease(bertecObj):
     speedR = speedAvg - 0.1
     bertecObj._write_command(speedL, speedR) 
 
-    # print("Speed Decreased, now: ", speedL, "m/s", end='\n')
+    print("Speed Decreased, now: %.2f m/s" % (speedL+speedR)/2, end='\n')
 
 def getSpeed(bertecObj):
     speedL, speedR = bertecObj.get_belt_speed()

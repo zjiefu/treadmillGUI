@@ -76,7 +76,7 @@ class ButtonApp(App):
 
     def getSpeed(self, event):
         currentSpeed = getSpeed(self.bertecObj)
-        print("Current speed: ", currentSpeed, "m/s", end='\r')
+        print("Current speed: %.2f m/s" %currentSpeed, end='\r')
 
 if __name__ == '__main__':
     ButtonApp().run()
